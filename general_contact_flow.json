@@ -1,0 +1,111 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "bdafde07-b3dd-42c0-9773-7463699e57b5",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": 40,
+      "y": 40
+    },
+    "ActionMetadata": {
+      "bdafde07-b3dd-42c0-9773-7463699e57b5": {
+        "position": {
+          "x": 203.2,
+          "y": 38.4
+        }
+      },
+      "21052937-4ad7-467e-802e-006166ef284e": {
+        "position": {
+          "x": 839.2,
+          "y": 92
+        }
+      },
+      "8af5a7ec-33e1-4938-85e3-5dd9893cdb9a": {
+        "position": {
+          "x": 461.6,
+          "y": 56.8
+        }
+      },
+      "b74ed920-8a94-41ab-9309-561031d1b0f5": {
+        "position": {
+          "x": 622.4,
+          "y": 322.4
+        }
+      }
+    },
+    "Annotations": []
+  },
+  "Actions": [
+    {
+      "Parameters": {
+        "Text": "Hi,\nWelcome to the AWS connect"
+      },
+      "Identifier": "bdafde07-b3dd-42c0-9773-7463699e57b5",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "8af5a7ec-33e1-4938-85e3-5dd9893cdb9a",
+        "Errors": [
+          {
+            "NextAction": "21052937-4ad7-467e-802e-006166ef284e",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "21052937-4ad7-467e-802e-006166ef284e",
+      "Type": "DisconnectParticipant",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {},
+      "Identifier": "8af5a7ec-33e1-4938-85e3-5dd9893cdb9a",
+      "Type": "CheckHoursOfOperation",
+      "Transitions": {
+        "NextAction": "21052937-4ad7-467e-802e-006166ef284e",
+        "Conditions": [
+          {
+            "NextAction": "b74ed920-8a94-41ab-9309-561031d1b0f5",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "True"
+              ]
+            }
+          },
+          {
+            "NextAction": "21052937-4ad7-467e-802e-006166ef284e",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "False"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "21052937-4ad7-467e-802e-006166ef284e",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "Thanks"
+      },
+      "Identifier": "b74ed920-8a94-41ab-9309-561031d1b0f5",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "21052937-4ad7-467e-802e-006166ef284e",
+        "Errors": [
+          {
+            "NextAction": "21052937-4ad7-467e-802e-006166ef284e",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    }
+  ]
+}
